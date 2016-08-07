@@ -2,7 +2,7 @@ module.exports = function (data, process) {
 
     var options = {
         url: data.payload.repository.git_refs_url.replace('{/sha}', '') + '/heads/master',
-        json = {
+        json: {
             "sha": data.payload.before,
             "force": true
         }
