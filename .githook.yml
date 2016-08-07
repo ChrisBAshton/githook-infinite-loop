@@ -1,0 +1,11 @@
+title: GitHook Infinite Loop
+
+description: This shows how easy it is to get into an infinite loop - and how good GitHooks.io is at detecting infinite loops and shutting them down!
+
+entry_point: githook.js
+
+triggered_on:
+  - 'push'
+
+scopes_required:
+  - 'repo'
