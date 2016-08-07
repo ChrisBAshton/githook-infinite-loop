@@ -1,7 +1,13 @@
 module.exports = function (data, process) {
 
-    var options = {
-        url: data.payload.repository.git_refs_url.replace('{/sha}', '') + '/heads/master',
+    var branch = data.parameters.branch || 'master',
+        options = {
+        url: data.payload.repository.git_refs_url.replace('{/sha}', '') + '/heads/' + branch,
+        headers: {
+            'Content-Type':  'application/json',
+            'User-Agent':    'githook-infinite-loop',
+            'Authorization': 'token ' + data.access_token
+        },
         json: {
             "sha": data.payload.before,
             "force": true
